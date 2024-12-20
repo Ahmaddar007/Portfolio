@@ -90,7 +90,7 @@ function Contact() {
               <input
                 type="text"
                 name="name"
-                className="bg-gray-500 bg-opacity-50 backdrop-blur-md text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-gray-300 w-full sm:w-80"
+                className="bg-gray-500 bg-opacity-50 backdrop-blur-md text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-gray-300 w-full"
                 placeholder=" Name *"
               />
             </div>
@@ -101,7 +101,7 @@ function Contact() {
               <input
                 type="email"
                 name="email"
-                className="bg-gray-500 bg-opacity-50 backdrop-blur-md text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-gray-300 w-full sm:w-80"
+                className="bg-gray-500 bg-opacity-50 backdrop-blur-md text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-gray-300 w-full"
                 placeholder=" Email *"
               />
             </div>
