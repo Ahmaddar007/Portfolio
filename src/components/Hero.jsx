@@ -13,6 +13,14 @@ function Hero() {
     return () => clearTimeout(timeout);
   }, []);
 
+  const handleDownload = () => {
+  
+    const link = document.createElement("a");
+    link.href = "/resume.pdf"; // File must be in the `public` folder
+    link.download = "Ahmad_Sajjad.pdf"; // Custom download file name
+    link.click();
+  };
+
   return (
     <div
       className={`flex flex-col items-center text-white my-10 bg-[#032543] mx-5 md:mx-20 p-10 md:p-20 rounded-xl border-2 border-[#0287f4] transition-all duration-1000 ease-in-out ${
@@ -53,7 +61,8 @@ function Hero() {
           isLoaded ? "translate-y-0" : "translate-y-10"
         }`}
       >
-        <Button text="Download CV" />
+        {/* Button with Download Functionality */}
+        <Button text="Download CV" onClick={handleDownload} />
       </div>
     </div>
   );

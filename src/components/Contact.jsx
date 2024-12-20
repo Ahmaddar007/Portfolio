@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "emailjs-com";
 import phone from "../assets/smartphone.png";
 import mail from "../assets/mail.png";
 import address from "../assets/location.png";
@@ -9,6 +10,31 @@ import github from "../assets/github.png";
 import Button from "../elements/Button";
 
 function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_2werf2e", // Replace with your EmailJS service ID
+        "template_fm4jdrb", // Replace with your EmailJS template ID
+        form.current,
+        "ClfD5CisDbtbid5eX" // Replace with your EmailJS public key
+      )
+      .then(
+        (result) => {
+          console.log("Message Sent", result.text);
+          alert("Email sent successfully!");
+          e.target.reset(); // Reset form after submission
+        },
+        (error) => {
+          console.error("Error:", error.text);
+          alert("Failed to send email.");
+        }
+      );
+  };
+
   return (
     <div
       id="contact"
@@ -55,7 +81,7 @@ function Contact() {
             </button>
           </div>
         </div>
-        <div className="sm:w-[40rem] w-full">
+        <form ref={form} onSubmit={sendEmail} className="sm:w-[40rem] w-full">
           <div className="flex flex-col sm:flex-row gap-8">
             <div className="flex flex-col w-full">
               <label htmlFor="name" className="mb-1 text-lg">
@@ -63,6 +89,7 @@ function Contact() {
               </label>
               <input
                 type="text"
+                name="name"
                 className="bg-gray-500 bg-opacity-50 backdrop-blur-md text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-gray-300 w-full sm:w-80"
                 placeholder=" Name *"
               />
@@ -73,6 +100,7 @@ function Contact() {
               </label>
               <input
                 type="email"
+                name="email"
                 className="bg-gray-500 bg-opacity-50 backdrop-blur-md text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-gray-300 w-full sm:w-80"
                 placeholder=" Email *"
               />
@@ -84,6 +112,7 @@ function Contact() {
             </label>
             <input
               type="text"
+              name="subject"
               className="bg-gray-500 bg-opacity-50 backdrop-blur-md text-white rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-gray-300 w-full"
               placeholder=" Subject *"
             />
@@ -104,7 +133,7 @@ function Contact() {
           <div className="flex justify-end my-8">
             <Button text="Send" style={{ width: "100%" }} />
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

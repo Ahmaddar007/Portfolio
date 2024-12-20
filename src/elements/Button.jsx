@@ -1,9 +1,13 @@
-import React from 'react';
+import React from "react";
 
-const Button = ({text}) => {
+const Button = ({ text, onClick }) => {
   return (
-    <div className="relative inline-block p-1 bg-gradient-to-r from-blue-500 to-pink-500 rounded-lg transition-all duration-400 ease-in-out hover:before:blur-lg active:before:blur-sm">
-      <button className="relative z-10 px-4 py-2 text-white bg-black rounded-md shadow-md hover:bg-opacity-90 focus:outline-none">
+    <div className="relative inline-block">
+      <button
+        onClick={onClick}
+        className="relative overflow-hidden px-6 py-3 text-white font-bold text-lg border-2 border-gray-800 bg-gray-900 rounded-full cursor-pointer transition-all duration-400 hover:border-gray-500 hover:bg-gray-800 focus:outline-none"
+      >
+        <span className="absolute inset-0 bg-gradient-radial from-white/25 to-transparent scale-0 transition-transform duration-500 hover:scale-150" />
         {text}
       </button>
     </div>
