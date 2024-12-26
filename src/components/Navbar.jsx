@@ -46,7 +46,7 @@ function Navbar() {
 
   return (
     <div
-      className={`flex justify-between items-center my-4 text-white sticky top-0 z-50 shadow-md bg-inherit transition-opacity duration-1000 ${
+      className={`flex justify-between bg-[#032543] items-center my-4 text-white sticky top-0 z-50 shadow-md bg-inherit transition-opacity duration-1000 ${
         isLoaded ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -61,7 +61,9 @@ function Navbar() {
       </div>
 
       {/* Mobile Hamburger Menu Icon */}
-      <div className="block lg:hidden">
+      <div className="block lg:hidden mr-4">
+        {" "}
+        {/* Added `mr-4` for margin-right */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="text-3xl"
@@ -117,11 +119,13 @@ function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden w-full bg-black absolute top-20 left-0 transition-all duration-300 ${
-          isMobileMenuOpen ? "h-60" : "h-0 overflow-hidden"
-        }`}
+        className={`lg:hidden w-full bg-blue-900 absolute top-20 left-0 transition-all duration-300 ${
+          isMobileMenuOpen ? "max-h-[300px]" : "h-0 overflow-hidden"
+        }`} // Updated color and dynamic height
       >
-        <ul className="flex flex-col gap-6 items-center pt-6 text-xl">
+        <ul className="flex flex-col gap-6 items-center pt-6 text-xl text-white">
+          {" "}
+          {/* Ensure text is readable */}
           <li
             className={`cursor-pointer transition-colors duration-300 ${
               active === "Home" ? "border-b-2 border-blue-500" : ""
@@ -161,12 +165,13 @@ function Navbar() {
       </div>
 
       <div className="pb-2 mr-8 hidden lg:block">
-        <a href="https://wa.me/+923013656698"><Button
-          text="Let's Chat"
-          className={`transition-transform duration-1000 ${
-            isLoaded ? "translate-y-0" : "-translate-y-10"
-          }`}
-        />
+        <a href="https://wa.me/+923013656698">
+          <Button
+            text="Let's Chat"
+            className={`transition-transform duration-1000 ${
+              isLoaded ? "translate-y-0" : "-translate-y-10"
+            }`}
+          />
         </a>
       </div>
     </div>

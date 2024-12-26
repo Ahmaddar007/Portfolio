@@ -61,6 +61,7 @@ function Hero() {
           isLoaded ? "translate-y-0" : "translate-y-10"
         }`}
       >
+        
         {/* Button with Download Functionality */}
         <Button text="Download CV" onClick={handleDownload} />
       </div>
