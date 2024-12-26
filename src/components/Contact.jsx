@@ -4,7 +4,6 @@ import phone from "../assets/smartphone.png";
 import mail from "../assets/mail.png";
 import address from "../assets/location.png";
 import linkedin from "../assets/linkedin.png";
-import insta from "../assets/instagram.png";
 import whatsapp from "../assets/whatsapp.png";
 import github from "../assets/github.png";
 import Button from "../elements/Button";
@@ -62,11 +61,6 @@ function Contact() {
             <button className="hover:scale-105 transition-transform duration-300">
               <a href="https://www.linkedin.com/in/ahmad-sajjad-a1b46b247/">
                 <img src={linkedin} className="w-8 h-8" alt="LinkedIn" />
-              </a>
-            </button>
-            <button className="hover:scale-105 transition-transform duration-300">
-              <a href="">
-                <img src={insta} className="w-8 h-8" alt="Instagram" />
               </a>
             </button>
             <button className="hover:scale-105 transition-transform duration-300">
