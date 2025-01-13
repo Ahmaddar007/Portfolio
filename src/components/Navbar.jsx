@@ -44,6 +44,10 @@ function Navbar() {
     setIsLoaded(true); // Set isLoaded to true when the component mounts
   }, []);
 
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false); // Close the mobile menu when a link is clicked
+  };
+
   return (
     <div
       className={`flex justify-between bg-[#032543] items-center my-4 text-white sticky top-0 z-50 shadow-md bg-inherit transition-opacity duration-1000 ${
@@ -62,8 +66,6 @@ function Navbar() {
 
       {/* Mobile Hamburger Menu Icon */}
       <div className="block lg:hidden mr-4">
-        {" "}
-        {/* Added `mr-4` for margin-right */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="text-3xl"
@@ -79,6 +81,7 @@ function Navbar() {
             isLoaded ? "translate-y-0" : "-translate-y-10"
           }`}
         >
+          {/* Desktop links */}
           <li
             className={`text-xl cursor-pointer transition-colors duration-300 ${
               active === "Home" ? "border-b-2 border-blue-500" : ""
@@ -121,45 +124,54 @@ function Navbar() {
       <div
         className={`lg:hidden w-full bg-blue-900 absolute top-20 left-0 transition-all duration-300 ${
           isMobileMenuOpen ? "max-h-[300px]" : "h-0 overflow-hidden"
-        }`} // Updated color and dynamic height
+        }`}
       >
         <ul className="flex flex-col gap-6 items-center pt-6 text-xl text-white">
-          {" "}
-          {/* Ensure text is readable */}
+          {/* Mobile links */}
           <li
             className={`cursor-pointer transition-colors duration-300 ${
               active === "Home" ? "border-b-2 border-blue-500" : ""
             }`}
           >
-            <a href="#home">Home</a>
+            <a href="#home" onClick={handleLinkClick}>
+              Home
+            </a>
           </li>
           <li
             className={`transition-colors duration-300 ${
               active === "About" ? "border-b-2 border-blue-500" : ""
             }`}
           >
-            <a href="#about">About</a>
+            <a href="#about" onClick={handleLinkClick}>
+              About
+            </a>
           </li>
           <li
             className={`transition-colors duration-300 ${
               active === "Projects" ? "border-b-2 border-blue-500" : ""
             }`}
           >
-            <a href="#work">Projects</a>
+            <a href="#work" onClick={handleLinkClick}>
+              Projects
+            </a>
           </li>
           <li
             className={`transition-colors duration-300 ${
               active === "Experience" ? "border-b-2 border-blue-500" : ""
             }`}
           >
-            <a href="#experience">Experience</a>
+            <a href="#experience" onClick={handleLinkClick}>
+              Experience
+            </a>
           </li>
           <li
             className={`transition-colors duration-300 ${
               active === "Contact" ? "border-b-2 border-blue-500" : ""
             }`}
           >
-            <a href="#contact">Contact</a>
+            <a href="#contact" onClick={handleLinkClick}>
+              Contact
+            </a>
           </li>
         </ul>
       </div>
